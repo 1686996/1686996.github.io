@@ -1,5 +1,26 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>MyrteX</title><link>https://blog.9lzh.com</link><description>菩提本无树，明镜亦非台。本来无一物，何处惹尘埃。</description><copyright>MyrteX</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://avatars.githubusercontent.com/u/61279610?v=4</url><title>avatar</title><link>https://blog.9lzh.com</link></image><lastBuildDate>Mon, 19 May 2025 01:35:24 +0000</lastBuildDate><managingEditor>MyrteX</managingEditor><ttl>60</ttl><webMaster>MyrteX</webMaster><item><title>Emby开心版 docker-compose.yaml</title><link>https://blog.9lzh.com/post/Emby-kai-xin-ban-%20docker-compose.yaml.html</link><description>&gt; services:
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>MyrteX</title><link>https://blog.9lzh.com</link><description>菩提本无树，明镜亦非台。本来无一物，何处惹尘埃。</description><copyright>MyrteX</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://avatars.githubusercontent.com/u/61279610?v=4</url><title>avatar</title><link>https://blog.9lzh.com</link></image><lastBuildDate>Tue, 03 Jun 2025 02:30:22 +0000</lastBuildDate><managingEditor>MyrteX</managingEditor><ttl>60</ttl><webMaster>MyrteX</webMaster><item><title>Clouddrive2 docker-compose.yaml</title><link>https://blog.9lzh.com/post/Clouddrive2%20docker-compose.yaml.html</link><description>&gt; services:
+  clouddrive2:
+    image: cloudnas/clouddrive2:latest
+    container_name: clouddrive2
+    environment:
+      - TZ=Asia/Shanghai
+      - CLOUDDRIVE_HOME=/Config
+      - PUID=0
+      - PGID=0
+      - PGIDLIST=0
+    volumes:
+      - /vol1/1000/CloudNAS:/CloudNAS:shared
+      - /vol02/1000-0-bab86c90:/MusicData:shared
+      - /vol1/1000/J4125:/J4125:shared
+      - /vol1/1000/Docker/CD2/config:/Config
+    devices:
+      - /dev/fuse:/dev/fuse
+    restart: always
+    pid: host
+    privileged: true
+    ports:
+      - 19798:19798。</description><guid isPermaLink="true">https://blog.9lzh.com/post/Clouddrive2%20docker-compose.yaml.html</guid><pubDate>Tue, 03 Jun 2025 02:29:51 +0000</pubDate></item><item><title>Emby开心版 docker-compose.yaml</title><link>https://blog.9lzh.com/post/Emby-kai-xin-ban-%20docker-compose.yaml.html</link><description>&gt; services:
   amilysemby:
     image: amilys/embyserver:latest
     container_name: amilysemby
