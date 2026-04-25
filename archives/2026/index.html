@@ -293,6 +293,16 @@
                 
 
                 </ul>
+
+                <!-- Color Selector -->
+                <div class="color-selector" style="margin: 30px 0;">
+                    <span style="font-size: 13px; color: #aaa; margin-right: 10px;">主题：</span>
+                    <button class="color-btn preset-pink-btn" onclick="setPreset('pink')" style="width:22px; height:22px; border-radius:50%; border:2px solid #ff9a9e; background:#fff5f5; cursor:pointer; margin:0 3px; vertical-align:middle;" title="樱花粉"></button>
+                    <button class="color-btn preset-mint-btn" onclick="setPreset('mint')" style="width:22px; height:22px; border-radius:50%; border:2px solid #81d4c4; background:#f0fff8; cursor:pointer; margin:0 3px; vertical-align:middle;" title="薄荷绿"></button>
+                    <button class="color-btn preset-oat-btn" onclick="setPreset('oat')" style="width:22px; height:22px; border-radius:50%; border:2px solid #c9a977; background:#fff9f0; cursor:pointer; margin:0 3px; vertical-align:middle;" title="燕麦奶"></button>
+                    <button class="color-btn preset-night-btn" onclick="setPreset('night')" style="width:22px; height:22px; border-radius:50%; border:2px solid #a8c0d8; background:#2d3436; cursor:pointer; margin:0 3px; vertical-align:middle;" title="星空夜"></button>
+                </div>
+
                 <p class="copyright text-muted">
                     Copyright &copy; My Blog 2026
                     <br>
@@ -333,16 +343,93 @@
     }
 </script>
 
+<!-- Color Preset Styles -->
+<style>
+.color-btn { transition: transform 0.2s, box-shadow 0.2s; }
+.color-btn:hover { transform: scale(1.2); box-shadow: 0 2px 6px rgba(0,0,0,0.2); }
+.color-btn.active { transform: scale(1.25); }
+
+/* 樱花粉 */
+body.preset-pink { background: linear-gradient(135deg, #fff5f5 0%, #ffe4e8 50%, #fff9f0 100%) !important; }
+body.preset-pink h1, body.preset-pink h2, body.preset-pink h3, body.preset-pink h4, body.preset-pink h5, body.preset-pink h6 { color: #ff7b7f !important; }
+body.preset-pink a { color: #ff9a9e !important; }
+body.preset-pink a:hover { color: #ff7b7f !important; }
+body.preset-pink .post-preview > a:hover > h2 { color: #ff7b7f !important; }
+body.preset-pink blockquote { border-color: #ffb4b4 !important; background: rgba(255,154,158,0.05) !important; }
+body.preset-pink .btn-default { border-color: #ff9a9e !important; color: #ff9a9e !important; }
+body.preset-pink .btn-default:hover { background: #ff9a9e !important; color: #fff !important; }
+body.preset-pink .preset-pink-btn { box-shadow: 0 0 0 3px rgba(255,154,158,0.5); }
+
+/* 薄荷绿 */
+body.preset-mint { background: linear-gradient(135deg, #f0fff8 0%, #d4f4ed 50%, #f5fff9 100%) !important; }
+body.preset-mint h1, body.preset-mint h2, body.preset-mint h3, body.preset-mint h4, body.preset-mint h5, body.preset-mint h6 { color: #5bb8a8 !important; }
+body.preset-mint a { color: #81d4c4 !important; }
+body.preset-mint a:hover { color: #5bb8a8 !important; }
+body.preset-mint .post-preview > a:hover > h2 { color: #5bb8a8 !important; }
+body.preset-mint blockquote { border-color: #a8e0d4 !important; background: rgba(129,212,196,0.05) !important; }
+body.preset-mint .btn-default { border-color: #81d4c4 !important; color: #81d4c4 !important; }
+body.preset-mint .btn-default:hover { background: #81d4c4 !important; color: #fff !important; }
+body.preset-mint .preset-mint-btn { box-shadow: 0 0 0 3px rgba(129,212,196,0.5); }
+
+/* 燕麦奶 */
+body.preset-oat { background: linear-gradient(135deg, #fff9f0 0%, #f5ede0 50%, #faf5eb 100%) !important; }
+body.preset-oat h1, body.preset-oat h2, body.preset-oat h3, body.preset-oat h4, body.preset-oat h5, body.preset-oat h6 { color: #b8956a !important; }
+body.preset-oat a { color: #c9a977 !important; }
+body.preset-oat a:hover { color: #b8956a !important; }
+body.preset-oat .post-preview > a:hover > h2 { color: #b8956a !important; }
+body.preset-oat blockquote { border-color: #d4c4a8 !important; background: rgba(201,169,119,0.05) !important; }
+body.preset-oat .btn-default { border-color: #c9a977 !important; color: #c9a977 !important; }
+body.preset-oat .btn-default:hover { background: #c9a977 !important; color: #fff !important; }
+body.preset-oat .preset-oat-btn { box-shadow: 0 0 0 3px rgba(201,169,119,0.5); }
+
+/* 星空夜 */
+body.preset-night { background: linear-gradient(135deg, #2d3436 0%, #3d4852 50%, #2c3e50 100%) !important; }
+body.preset-night h1, body.preset-night h2, body.preset-night h3, body.preset-night h4, body.preset-night h5, body.preset-night h6 { color: #a8c0d8 !important; }
+body.preset-night a { color: #a8c0d8 !important; }
+body.preset-night a:hover { color: #8ba8c4 !important; }
+body.preset-night .post-preview > a { color: #d0d5dc !important; }
+body.preset-night .post-preview > a > .post-title { color: #d0d5dc !important; }
+body.preset-night .post-preview > a:hover > h2 { color: #a8c0d8 !important; }
+body.preset-night .sidebar-container, body.preset-night footer { color: #9aa5b0 !important; }
+body.preset-night blockquote { border-color: #5a7088 !important; background: rgba(168,192,216,0.05) !important; }
+body.preset-night .btn-default { border-color: #a8c0d8 !important; color: #a8c0d8 !important; }
+body.preset-night .btn-default:hover { background: #a8c0d8 !important; color: #2d3436 !important; }
+body.preset-night .preset-night-btn { box-shadow: 0 0 0 3px rgba(168,192,216,0.5); }
+</style>
+
+<script>
+function setPreset(preset) {
+    document.body.className = 'preset-' + preset;
+    localStorage.setItem('blog-color-preset', preset);
+    updateButtons(preset);
+}
+
+function updateButtons(active) {
+    document.querySelectorAll('.color-btn').forEach(function(btn) {
+        btn.classList.remove('active');
+    });
+    var activeBtn = document.querySelector('.preset-' + active + '-btn');
+    if (activeBtn) activeBtn.classList.add('active');
+}
+
+var saved = localStorage.getItem('blog-color-preset');
+if (saved) {
+    setPreset(saved);
+} else {
+    updateButtons('pink');
+}
+</script>
+
 <!-- jquery.tagcloud.js -->
 <script>
     // only load tagcloud.js in tag.html
-    if($('#tag_cloud').length !== 0){
+    if(.length !== 0){
         async("https://1686996.github.io/js/jquery.tagcloud.js",function(){
             $.fn.tagcloud.defaults = {
                 //size: {start: 1, end: 1, unit: 'em'},
                 color: {start: '#bbbbee', end: '#0085a1'},
             };
-            $('#tag_cloud a').tagcloud();
+            .tagcloud();
         })
     }
 </script>
@@ -350,8 +437,8 @@
 <!--fastClick.js -->
 <script>
     async("//cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
-        var $nav = document.querySelector("nav");
-        if($nav) FastClick.attach($nav);
+        var  = document.querySelector("nav");
+        if() FastClick.attach();
     })
 </script>
 
